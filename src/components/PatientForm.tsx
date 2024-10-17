@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 export default function PatientForm() {
-  const { register, handleSubmit, formState } = useForm()
+  const { register, handleSubmit, formState:{errors} } = useForm()
 
   const registerPatient = () => {
     console.log('New patient')
@@ -33,6 +33,7 @@ export default function PatientForm() {
                         required: 'The patient name is obligatory'
                       })}
                   />
+                  {errors.name?.message}
               </div>
 
               <div className="mb-5">
