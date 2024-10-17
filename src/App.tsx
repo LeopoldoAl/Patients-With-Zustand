@@ -1,3 +1,5 @@
+import PatientForm from "./components/PatientForm"
+import PatientsList from "./components/PatientsList"
 
 function App() {
   
@@ -9,6 +11,11 @@ function App() {
           Patient Monitoring {''}
           <span className="text-indigo-700">Vet</span>
         </h1>
+
+        <div className="mt-12 md:flex">
+          <PatientForm/>
+          <PatientsList/>
+        </div>
       </div>
     </>
   )
