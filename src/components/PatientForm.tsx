@@ -49,7 +49,13 @@ export default function PatientForm() {
                     className="w-full p-3  border border-gray-100"  
                     type="text" 
                     placeholder="Owner Name" 
+                    {...register('caretaker',{
+                        required: 'The owner is obligatory'
+                      })}
                 />
+                {errors.caretaker && (
+                    <Error>{errors.caretaker?.message?.toString()}</Error>
+                  )}     
               </div>
 
             <div className="mb-5">
@@ -61,7 +67,17 @@ export default function PatientForm() {
                   className="w-full p-3  border border-gray-100"  
                   type="email" 
                   placeholder="Email" 
+                  {...register("email", {
+                    required: "The Email is obligatory",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: 'Email does not valid!'
+                    }
+                  })} 
               />
+              {errors.email && (
+                    <Error>{errors.email?.message?.toString()}</Error>
+                  )} 
             </div>
 
             <div className="mb-5">
@@ -72,7 +88,13 @@ export default function PatientForm() {
                     id="date"
                     className="w-full p-3  border border-gray-100"  
                     type="date" 
+                    {...register('date',{
+                        required: 'The date is obligatory'
+                      })}
                 />
+                {errors.date && (
+                    <Error>{errors.date?.message?.toString()}</Error>
+                  )}  
             </div>
             
             <div className="mb-5">
@@ -83,7 +105,13 @@ export default function PatientForm() {
                     id="symptoms"
                     className="w-full p-3  border border-gray-100"  
                     placeholder="Patient Symtoms" 
-                ></textarea>
+                    {...register('symptoms',{
+                        required: 'The symptoms are obligatory'
+                      })}
+                />
+                {errors.symptoms && (
+                    <Error>{errors.symptoms?.message?.toString()}</Error>
+                  )} 
             </div>
 
             <input
