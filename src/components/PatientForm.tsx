@@ -1,10 +1,11 @@
 import { useForm } from 'react-hook-form'
 import Error from './Error'
+import { DraftPatient } from './types'
 export default function PatientForm() {
-  const { register, handleSubmit, formState:{errors} } = useForm()
+  const { register, handleSubmit, formState:{errors} } = useForm<DraftPatient>()
 
-  const registerPatient = () => {
-    console.log('New patient')
+  const registerPatient = (data: DraftPatient) => {
+    console.log(data)
   }
 
 
@@ -36,7 +37,7 @@ export default function PatientForm() {
                       })}
                   />
                   {errors.name && (
-                    <Error>{errors.name?.message?.toString()}</Error>
+                    <Error>{errors.name?.message}</Error>
                   )}          
               </div>
 
@@ -54,7 +55,7 @@ export default function PatientForm() {
                       })}
                 />
                 {errors.caretaker && (
-                    <Error>{errors.caretaker?.message?.toString()}</Error>
+                    <Error>{errors.caretaker?.message}</Error>
                   )}     
               </div>
 
@@ -76,7 +77,7 @@ export default function PatientForm() {
                   })} 
               />
               {errors.email && (
-                    <Error>{errors.email?.message?.toString()}</Error>
+                    <Error>{errors.email?.message}</Error>
                   )} 
             </div>
 
@@ -93,7 +94,7 @@ export default function PatientForm() {
                       })}
                 />
                 {errors.date && (
-                    <Error>{errors.date?.message?.toString()}</Error>
+                    <Error>{errors.date?.message}</Error>
                   )}  
             </div>
             
@@ -110,7 +111,7 @@ export default function PatientForm() {
                       })}
                 />
                 {errors.symptoms && (
-                    <Error>{errors.symptoms?.message?.toString()}</Error>
+                    <Error>{errors.symptoms?.message}</Error>
                   )} 
             </div>
 
