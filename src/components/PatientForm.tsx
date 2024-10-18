@@ -7,7 +7,6 @@ export default function PatientForm() {
     console.log('New patient')
   }
 
-  console.log(errors)
 
   return (
     <div className="md:w-1/2 lg:w-2/5 mx-5">
@@ -33,19 +32,12 @@ export default function PatientForm() {
                       type="text" 
                       placeholder="Patient Name" 
                       {...register('name',{
-                        required: 'The patient name is obligatory',
-                        maxLength: {
-                            value: 8,
-                            message: 'It only 8 letters are allowed'
-                        }
+                        required: 'The patient name is obligatory'
                       })}
                   />
                   {errors.name && (
                     <Error>{errors.name?.message?.toString()}</Error>
-                  )}         
-                  {errors.maxLength && (
-                    <Error>{errors.name?.message?.toString()}</Error>
-                  )}         
+                  )}          
               </div>
 
               <div className="mb-5">
