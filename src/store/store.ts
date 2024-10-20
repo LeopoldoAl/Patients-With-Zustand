@@ -6,9 +6,11 @@ type PatientState = {
     addPatient: (data: DraftPatient) => void
 }
 
-export const usePatientStore = create<PatientState>((set, get) => ({
+export const usePatientStore = create<PatientState>((set) => ({
     patients: [],
     addPatient: (data) => {
-        console.log(data)
+       set((state) => ({
+        patients: [...state.patients, data]
+       }))
     }
 }))
