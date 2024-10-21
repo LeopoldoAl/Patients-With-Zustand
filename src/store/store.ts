@@ -2,7 +2,6 @@ import {v4 as uuidv4} from 'uuid';
 import { create } from "zustand";
 import { devtools, persist } from 'zustand/middleware';
 import { DraftPatient, Patient } from "../components/types";
-import { createJSONStorage } from 'zustand/middleware';
 
 
 type PatientState = {
