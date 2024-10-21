@@ -49,6 +49,5 @@ devtools(
             }
     }),{
         name: 'patient-storage',
-        storage: createJSONStorage(() => sessionStorage),
     })
 ))
